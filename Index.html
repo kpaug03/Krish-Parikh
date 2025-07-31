@@ -436,6 +436,52 @@
             animation: fadeInUp 0.8s ease-out 0.8s forwards;
         }
 
+        .hero-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out 1s forwards;
+        }
+
+        .hero-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .hero-social a:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(114, 100, 227, 0.3);
+        }
+
+        .hero-social a.linkedin:hover {
+            background: linear-gradient(45deg, #0a66c2, #1d88e5);
+        }
+
+        .hero-social a.github:hover {
+            background: linear-gradient(45deg, #171515, #2d2a2a);
+        }
+
+        .hero-social a.instagram:hover {
+            background: linear-gradient(45deg, #c13584, #e1306c);
+        }
+
+        .hero-social a.twitter:hover {
+            background: linear-gradient(45deg, #1DA1F2, #657786);
+        }
+
         @keyframes fadeInUp {
             to {
                 opacity: 1;
@@ -717,24 +763,24 @@
             transform: translateX(3px);
         }
 
-        /* Certifications & Hackathons */
-        .cert-container, .hackathon-container {
+        /* Certifications Section */
+        .cert-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 20px;
         }
 
-        .cert-card, .hackathon-card {
+        .cert-card {
             padding: 20px;
             opacity: 0;
             transform: scale(0.95);
         }
 
-        .cert-card.visible, .hackathon-card.visible {
+        .cert-card.visible {
             animation: popIn 0.5s ease-out forwards;
         }
 
-        .cert-card h4, .hackathon-card h4 {
+        .cert-card h4 {
             font-size: 1.2rem;
             margin-bottom: 10px;
             color: var(--text-primary);
@@ -743,7 +789,7 @@
             gap: 8px;
         }
 
-        .cert-card h4 i, .hackathon-card h4 i {
+        .cert-card h4 i {
             color: var(--accent);
             font-size: 1.1rem;
         }
@@ -756,67 +802,42 @@
             font-size: 0.9rem;
         }
 
-        /* Social Section */
-        .social-section {
-            background: rgba(12, 12, 20, 0.55);
+        /* Hackathons Section */
+        .hackathon-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
         }
 
-        .social-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
+        .hackathon-card {
+            padding: 20px;
+            opacity: 0;
+            transform: scale(0.95);
         }
 
-        .social-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 20px;
+        .hackathon-card.visible {
+            animation: popIn 0.5s ease-out forwards;
         }
 
-        .social-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
+        .hackathon-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
             color: var(--text-primary);
-            transition: var(--transition);
-            width: 150px;
-        }
-
-        .social-link:hover {
-            transform: translateY(-5px);
-        }
-
-        .social-icon-container {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: var(--bg-card);
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-            transition: var(--transition);
+            gap: 8px;
         }
 
-        .social-link:hover .social-icon-container {
-            background: var(--accent);
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .social-link .platform {
+        .hackathon-card h4 i {
+            color: var(--accent);
             font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 5px;
         }
 
-        .social-link .handle {
+        .hackathon-location {
             color: var(--text-secondary);
             font-size: 0.95rem;
+            margin-top: 5px;
+            display: block;
         }
 
         /* Footer */
@@ -1045,6 +1066,10 @@
                 gap: 10px;
             }
             
+            .hero-social {
+                justify-content: center;
+            }
+            
             .btn {
                 width: 100%;
                 justify-content: center;
@@ -1195,7 +1220,6 @@
                     <a href="#projects">Projects</a>
                     <a href="#certifications">Certifications</a>
                     <a href="#hackathons">Hackathons</a>
-                    <a href="#social">Social</a>
                 </div>
                 <div class="nav-cta">
                     <a href="#" class="btn btn-outline">
@@ -1226,9 +1250,15 @@
                     <a href="#projects" class="btn btn-primary">
                         <i class="fas fa-laptop-code"></i> View My Work
                     </a>
-                    <a href="#social" class="btn btn-outline">
-                        <i class="fas fa-hashtag"></i> Follow Me
+                    <a href="Resume_2.pdf" download class="btn btn-outline">
+                        <i class="fas fa-download"></i> Download Resume
                     </a>
+                </div>
+                <div class="hero-social">
+                    <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="github"><i class="fab fa-github"></i></a>
+                    <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
         </div>
@@ -1279,21 +1309,27 @@
             <div class="skills-container">
                 <div class="skill-card glass">
                     <div class="skill-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h4>Machine Learning</h4>
-                </div>
-                <div class="skill-card glass">
-                    <div class="skill-icon">
                         <i class="fab fa-python"></i>
                     </div>
                     <h4>Python Programming</h4>
                 </div>
                 <div class="skill-card glass">
                     <div class="skill-icon">
-                        <i class="fab fa-java"></i>
+                        <i class="fas fa-robot"></i>
                     </div>
-                    <h4>Java & Android</h4>
+                    <h4>Machine Learning</h4>
+                </div>
+                <div class="skill-card glass">
+                    <div class="skill-icon">
+                        <i class="fab fa-php"></i>
+                    </div>
+                    <h4>PHP Programming</h4>
+                </div>
+                <div class="skill-card glass">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h4>C/C++ Programming</h4>
                 </div>
                 <div class="skill-card glass">
                     <div class="skill-icon">
@@ -1303,15 +1339,33 @@
                 </div>
                 <div class="skill-card glass">
                     <div class="skill-icon">
-                        <i class="fas fa-database"></i>
+                        <i class="fas fa-gamepad"></i>
                     </div>
-                    <h4>Database Systems</h4>
+                    <h4>Game Development</h4>
                 </div>
                 <div class="skill-card glass">
                     <div class="skill-icon">
-                        <i class="fab fa-php"></i>
+                        <i class="fab fa-java"></i>
                     </div>
-                    <h4>Web Development</h4>
+                    <h4>Java Programming</h4>
+                </div>
+                <div class="skill-card glass">
+                    <div class="skill-icon">
+                        <i class="fab fa-android"></i>
+                    </div>
+                    <h4>Android Development</h4>
+                </div>
+                <div class="skill-card glass">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h4>SQL and NoSQL Database</h4>
+                </div>
+                <div class="skill-card glass">
+                    <div class="skill-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h4>Communication Skills</h4>
                 </div>
             </div>
         </div>
@@ -1391,57 +1445,19 @@
             <div class="hackathon-container">
                 <div class="hackathon-card glass">
                     <h4><i class="fas fa-rocket"></i> NASA Space Apps Challenge</h4>
+                    <span class="hackathon-location">Nirma University Ahmedabad (2023, 2024)</span>
                 </div>
                 <div class="hackathon-card glass">
                     <h4><i class="fas fa-code"></i> HackOut</h4>
+                    <span class="hackathon-location">DA-IICT Gandhinagar (2023, 2024)</span>
                 </div>
                 <div class="hackathon-card glass">
                     <h4><i class="fas fa-cubes"></i> Odoo Combat</h4>
+                    <span class="hackathon-location">Odoo Gandhinagar</span>
                 </div>
                 <div class="hackathon-card glass">
                     <h4><i class="fas fa-gamepad"></i> Tic Tech Toe</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Section -->
-    <section id="social" class="social-section">
-        <div class="container">
-            <div class="section-header">
-                <h3>Connect With Me</h3>
-                <p>Follow me on social media platforms</p>
-            </div>
-            <div class="social-container">
-                <div class="social-links">
-                    <a href="#" class="social-link" style="--delay: 0.1s;">
-                        <div class="social-icon-container" style="background: linear-gradient(45deg, #0a66c2, #1d88e5);">
-                            <i class="fab fa-linkedin-in"></i>
-                        </div>
-                        <div class="platform">LinkedIn</div>
-                        <div class="handle">krish-parikh</div>
-                    </a>
-                    <a href="#" class="social-link" style="--delay: 0.2s;">
-                        <div class="social-icon-container" style="background: linear-gradient(45deg, #171515, #2d2a2a);">
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <div class="platform">GitHub</div>
-                        <div class="handle">krish-parikh</div>
-                    </a>
-                    <a href="#" class="social-link" style="--delay: 0.3s;">
-                        <div class="social-icon-container" style="background: linear-gradient(45deg, #c13584, #e1306c);">
-                            <i class="fab fa-instagram"></i>
-                        </div>
-                        <div class="platform">Instagram</div>
-                        <div class="handle">@krish_parikh</div>
-                    </a>
-                    <a href="#" class="social-link" style="--delay: 0.4s;">
-                        <div class="social-icon-container" style="background: linear-gradient(45deg, #1DA1F2, #657786);">
-                            <i class="fab fa-twitter"></i>
-                        </div>
-                        <div class="platform">Twitter</div>
-                        <div class="handle">@krish_parikh</div>
-                    </a>
+                    <span class="hackathon-location">DA-IICT Gandhinagar (2025)</span>
                 </div>
             </div>
         </div>
