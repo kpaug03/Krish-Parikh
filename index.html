@@ -356,14 +356,16 @@
             transform: translateY(-4px);
         }
 
-        /* Typing animation for hero subtitle */
+        /* FIXED TYPING EFFECT - Simplified and more reliable */
         .typing-effect {
+            display: inline-block;
             border-right: 2px solid var(--accent-glow);
             white-space: nowrap;
             overflow: hidden;
             width: 0;
-            animation: typing 3.5s steps(40, end) 0.5s 1 normal both,
-                       blink 0.75s step-end infinite;
+            animation: 
+                typing 3.5s steps(40, end) 0.5s forwards,
+                blink-caret 0.75s step-end infinite;
         }
 
         @keyframes typing {
@@ -371,7 +373,7 @@
             to { width: 100% }
         }
 
-        @keyframes blink {
+        @keyframes blink-caret {
             from, to { border-color: transparent }
             50% { border-color: var(--accent-glow) }
         }
@@ -412,9 +414,7 @@
             font-weight: 600;
             color: var(--accent-glow);
             margin-bottom: 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+            /* Removed the opacity and transform properties that were conflicting with typing effect */
         }
 
         .hero p {
@@ -1467,7 +1467,7 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">Krish Parikh</div>
+                <div class="footer-logo">Krish</div>
                 <p class="footer-text">Computer Engineering Student building innovative solutions through code. Passionate about Machine Learning, IoT, and creating impactful software experiences.</p>
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-github"></i></a>
@@ -1475,7 +1475,7 @@
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
-                <p class="copyright">&copy;</p>
+                <p class="copyright">&copy; </p>
             </div>
         </div>
     </footer>
@@ -1758,6 +1758,15 @@
                     }
                 });
             });
+            
+            // Fixed typing effect initialization
+            setTimeout(() => {
+                const typingEffect = document.querySelector('.typing-effect');
+                if (typingEffect) {
+                    // Force reflow to restart animation
+                    void typingEffect.offsetWidth;
+                }
+            }, 500);
         });
     </script>
 </body>
